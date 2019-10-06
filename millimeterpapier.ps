@@ -34,30 +34,61 @@ width netwidth sub 2 div height netheight sub 2 div translate
 .8 setlinewidth
 0 0 netwidth netheight rectstroke
 
-% Zentimeterlinien vertikal
+% Zentimeterlinien
 .4 setlinewidth
 0 10 netwidth
- { dup 
-   0 moveto
-   netheight lineto
-   } for 
+{ 
+    dup 
+    0 moveto
+    netheight lineto
+} for 
+
+0 10 netheight
+{
+    dup
+    0 exch moveto
+    netwidth exch lineto
+} for
+
 stroke
 
 % Fuenfmillimeterlinien vertikal
 .2 setlinewidth
 0 5 netwidth
- { dup 
-   0 moveto
-   netheight lineto
-   } for stroke
+ { 
+    dup 
+    0 moveto
+    netheight lineto
+} for
+
+0 5 netheight
+{
+    dup
+    0 exch moveto
+    netwidth exch lineto
+} for
+
+
+stroke
 
 % Millimeterlinien vertikal
 .1 setlinewidth
 0 1 netwidth
- { dup 
-   0 moveto
-   netheight lineto
-   } for stroke
+ {
+     dup 
+     0 moveto
+     netheight lineto
+} for 
+
+0 1 netheight
+{
+    dup
+    0 exch moveto
+    netwidth exch lineto
+} for
+
+
+stroke
 
 
 
