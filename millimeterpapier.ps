@@ -1,36 +1,17 @@
 %!PS-Adobe-3.0 EPSF-3.0
 %%BoundingBox: 0 0 595 842
-%2.835 dup scale
-%5 4 translate 1 setlinecap
-%0 0 200 290 rectstroke
-%100 145 translate
-%/W 10 def /W2 { W 2 div } bind def
-%/DRAWUNIT {
-% gsave translate rotate
-% W2 neg W2 neg W2 0 90 arc stroke
-% W2 W2 W2 180 270 arc stroke
-% grestore
-%} def
-%-95 W 95 {
-% /x exch def
-% -140 W 140 {
-% /y exch def
-% rand 4 mod 90 mul x y DRAWUNIT
-% } for
-%} for
-%showpage
 
-/width 210 def
-/height 297 def
+/paperwidth 210 def
+/paperheight 297 def
 /minimumborder 10 def
-/netwidth width minimumborder 2 mul sub 10 idiv 10 mul def
-/netheight height minimumborder 2 mul sub 10 idiv 10 mul def
+/netwidth paperwidth minimumborder 2 mul sub 10 idiv 10 mul def
+/netheight paperheight minimumborder 2 mul sub 10 idiv 10 mul def
 
 2.835 dup scale %% now mm is the unit
 
-width netwidth sub 2 div height netheight sub 2 div translate
+paperwidth netwidth sub 2 div paperheight netheight sub 2 div translate
  
- 0 .45 1 0 setcmykcolor % Orange
+0 .45 1 0 setcmykcolor % Orange
 
 /drawgridlines %% args are <space> <linewidth>
 {
