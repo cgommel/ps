@@ -22,28 +22,32 @@
 
 /width 210 def
 /height 297 def
-/border 10 def
-/netwidth width border 2 mul sub 10 idiv 10 mul def
-/netheight height border 2 mul sub 10 idiv 10 mul def
-
+/minimumborder 10 def
+/netwidth width minimumborder 2 mul sub 10 idiv 10 mul def
+/netheight height minimumborder 2 mul sub 10 idiv 10 mul def
 
 2.835 dup scale %% now mm is the unit
 
 width netwidth sub 2 div height netheight sub 2 div translate
- 0 1 1 0 setcmykcolor
+ 
+ 0 .45 1 0 setcmykcolor % Orange
+
+%Umgebendes Rechteck
 .8 setlinewidth
 0 0 netwidth netheight rectstroke
 
-% Zentimeterlinien
-.4 setlinewidth
-0 10 netwidth
+/drawgridlines %% args are <space> <linewidth>
+{
+    % Zentimeterlinien
+setlinewidth dup
+0 exch netwidth %Vertikale Linien zeichnen
 { 
     dup 
     0 moveto
     netheight lineto
 } for 
 
-0 10 netheight
+0 exch netheight % Horizontale Linien zeichnen
 {
     dup
     0 exch moveto
@@ -51,38 +55,10 @@ width netwidth sub 2 div height netheight sub 2 div translate
 } for
 stroke
 
-% Fuenfmillimeterlinien
-.2 setlinewidth
-0 5 netwidth
- { 
-    dup 
-    0 moveto
-    netheight lineto
-} for
+} def
 
-0 5 netheight
-{
-    dup
-    0 exch moveto
-    netwidth exch lineto
-} for
-stroke
-
-% Millimeterlinien
-.1 setlinewidth
-0 1 netwidth
- {
-     dup 
-     0 moveto
-     netheight lineto
-} for 
-
-0 1 netheight
-{
-    dup
-    0 exch moveto
-    netwidth exch lineto
-} for
-stroke
+10 .4 drawgridlines
+5 .2 drawgridlines
+1 .1 drawgridlines
 
 showpage
