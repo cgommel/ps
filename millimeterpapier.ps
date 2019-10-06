@@ -32,33 +32,37 @@ width netwidth sub 2 div height netheight sub 2 div translate
  
  0 .45 1 0 setcmykcolor % Orange
 
-%Umgebendes Rechteck
-.8 setlinewidth
-0 0 netwidth netheight rectstroke
-
 /drawgridlines %% args are <space> <linewidth>
 {
-    % Zentimeterlinien
-setlinewidth dup
-0 exch netwidth %Vertikale Linien zeichnen
-{ 
-    dup 
-    0 moveto
-    netheight lineto
-} for 
-
-0 exch netheight % Horizontale Linien zeichnen
-{
-    dup
-    0 exch moveto
-    netwidth exch lineto
-} for
-stroke
+    setlinewidth dup
+    0 exch netwidth %Vertikale Linien zeichnen
+    { 
+        dup 
+        0 moveto
+        netheight lineto
+    } for 
+    
+    0 exch netheight % Horizontale Linien zeichnen
+    {
+        dup
+        0 exch moveto
+        netwidth exch lineto
+    } for
+    
+    stroke
 
 } def
 
-10 .4 drawgridlines
-5 .2 drawgridlines
-1 .1 drawgridlines
+.4 % Basis-Linienbreite 
+
+dup setlinewidth
+0 0 netwidth netheight rectstroke %Umgebendes Rechteck
+
+2 div dup % Linienbreite halbieren
+10 exch drawgridlines % 10mm-Linien
+2 div dup % Linienbreite halbieren
+5 exch drawgridlines % 5mm-Linien
+2 div % Linienbreite halbieren
+1 exch drawgridlines % mm-Linien
 
 showpage
