@@ -16,14 +16,14 @@ paperwidth netwidth sub 2 div paperheight netheight sub 2 div translate
 /drawgridlines %% args are <space> <linewidth>
 {
     setlinewidth dup
-    0 exch netwidth %Vertikale Linien zeichnen
+    0 exch netwidth % draw vertical lines
     { 
         dup 
         0 moveto
         netheight lineto
     } for 
     
-    0 exch netheight % Horizontale Linien zeichnen
+    0 exch netheight % draw horizontal lines
     {
         dup
         0 exch moveto
@@ -34,16 +34,16 @@ paperwidth netwidth sub 2 div paperheight netheight sub 2 div translate
 
 } def
 
-.4 % Basis-Linienbreite 
+.4 % border-linewidth in mm
 
 dup setlinewidth
-0 0 netwidth netheight rectstroke %Umgebendes Rechteck
+0 0 netwidth netheight rectstroke %draw bounding rectangle
 
-2 div dup % Linienbreite halbieren
-10 exch drawgridlines % 10mm-Linien
-2 div dup % Linienbreite halbieren
-5 exch drawgridlines % 5mm-Linien
-2 div % Linienbreite halbieren
-1 exch drawgridlines % mm-Linien
+2 div dup % half linewidth as before
+10 exch drawgridlines % 10mm lines
+2 div dup % half linewidth as before
+5 exch drawgridlines % 5mm lines
+2 div % half linewidth as before
+1 exch drawgridlines % 1mm lines
 
 showpage
