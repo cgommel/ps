@@ -32,16 +32,18 @@ paperwidth netwidth sub 2 div paperheight netheight sub 2 div translate
     stroke
 } def
 
-.4 % border-linewidth in mm
+.05 dup
 
-dup setlinewidth
-0 0 netwidth netheight rectstroke %draw bounding rectangle
-
-2 div dup % half linewidth as before
-10 exch drawgridlines % 10mm lines
-2 div dup % half linewidth as before
-5 exch drawgridlines % 5mm lines
-2 div % half linewidth as before
 1 exch drawgridlines % 1mm lines
+
+2 mul dup % double line width
+5 exch drawgridlines % 5mm lines
+
+2 mul dup % double line width
+10 exch drawgridlines % 10mm lines
+
+2 mul % double line width
+setlinewidth % base linewidth in mm
+0 0 netwidth netheight rectstroke %draw bounding rectangle
 
 showpage
